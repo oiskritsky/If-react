@@ -11,7 +11,7 @@ function App() {
     <section className='recommend'>
       <div className='recommend__wrapper'>
         <div className='recommend__title'>
-          <h2>Homes guests loves</h2>
+          <h2>Homes ssss loves</h2>
         </div>
         <div className='slider-buttons'>
           <button type='button' aria-label='prev' className='btn-prev' />

@@ -13,9 +13,5 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {
-    "no-console": "off",
-    "eqeqeq": "off",
-    "react/jsx-filename-extension": "off"
-  }
+  "rules": {}
 }
