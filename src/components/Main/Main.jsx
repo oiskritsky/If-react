@@ -8,7 +8,7 @@ import Available from '../AvailableHotels/Available';
 import data from '../../mock/data';
 
 export default function Main() {
-  const [hotelSearchData, setHotelSearchData] = useState([]);
+  const [hotelSearchData, setHotelSearchData] = useState('');
 
   const filteredHotels = data.filter(
     (item) =>

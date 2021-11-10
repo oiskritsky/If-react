@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AvailableHotelList from './AvailableHotelList';
 
 export default function Available({ filteredHotels }) {
@@ -21,3 +22,7 @@ export default function Available({ filteredHotels }) {
     </>
   );
 }
+
+Available.propTypes = {
+  filteredHotels: PropTypes.array.isRequired,
+};

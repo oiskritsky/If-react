@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AvailableHotelItem from './AvailableHotelItem';
 
 export default function AvailableHotelList({ filteredHotels }) {
@@ -16,3 +17,7 @@ export default function AvailableHotelList({ filteredHotels }) {
     </ul>
   );
 }
+
+AvailableHotelList.propTypes = {
+  filteredHotels: PropTypes.array.isRequired,
+};

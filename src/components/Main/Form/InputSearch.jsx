@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function InputSearch({ value, onChange }) {
   return (
@@ -11,7 +12,11 @@ export default function InputSearch({ value, onChange }) {
         value={value}
         onChange={onChange}
       />
-      <div>{console.log({ value })}</div>
     </>
   );
 }
+
+InputSearch.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

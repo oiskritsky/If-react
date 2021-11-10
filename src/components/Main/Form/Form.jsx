@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import InputSearch from './InputSearch';
 
 export default function Form({ hotelSearchData, setHotelSearchData }) {
@@ -24,3 +26,8 @@ export default function Form({ hotelSearchData, setHotelSearchData }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  hotelSearchData: PropTypes.string.isRequired,
+  setHotelSearchData: PropTypes.func.isRequired,
+};

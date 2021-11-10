@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function AvailableHotelItem({ name, city, country, imageUrl }) {
   return (
@@ -11,3 +12,10 @@ export default function AvailableHotelItem({ name, city, country, imageUrl }) {
     </li>
   );
 }
+
+AvailableHotelItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+};

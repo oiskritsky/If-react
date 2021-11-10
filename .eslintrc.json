@@ -17,7 +17,6 @@
     "jsx-a11y/anchor-has-content": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "no-console": "off",
-    "react/forbid-prop-types": "off",
-    "react/prop-types": "off"
+    "react/forbid-prop-types": "off"
   }
 }
