@@ -1,13 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HotelList from './Hotels/HotelList';
-import data from '../../mock/data';
 
-export default function Recommend() {
+export default function Recommend({ title, data }) {
   return (
     <section className='recommend'>
       <div className='recommend__wrapper'>
         <div className='recommend__title'>
-          <h2>Homes loves</h2>
+          <h2>{title}</h2>
         </div>
         <div className='slider-buttons'>
           <button type='button' aria-label='prev' className='btn-prev' />
@@ -20,3 +20,8 @@ export default function Recommend() {
     </section>
   );
 }
+
+Recommend.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
+};

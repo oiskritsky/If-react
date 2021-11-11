@@ -3,7 +3,7 @@ import Header from './Header/Header';
 import Title from './Header/Title/Title';
 import Form from './Form/Form';
 import Market from './Market/Market';
-import Available from '../AvailableHotels/Available';
+import Recommend from '../Recommend/Recommend';
 
 import data from '../../mock/data';
 
@@ -12,9 +12,9 @@ export default function Main() {
 
   const filteredHotels = data.filter(
     (item) =>
-      !(item.name.indexOf(hotelSearchData) === -1) ||
-      !(item.city.indexOf(hotelSearchData) === -1) ||
-      !(item.country.indexOf(hotelSearchData) === -1)
+      !(item.name.toLowerCase().indexOf(hotelSearchData.toLowerCase()) === -1) ||
+      !(item.city.toLowerCase().indexOf(hotelSearchData.toLowerCase()) === -1) ||
+      !(item.country.toLowerCase().indexOf(hotelSearchData.toLowerCase()) === -1)
   );
   return (
     <>
@@ -26,7 +26,9 @@ export default function Main() {
         </div>
         <Market />
       </main>
-      {!!hotelSearchData.length && <Available filteredHotels={filteredHotels} />}
+      {!!hotelSearchData.length && !!filteredHotels.length && (
+        <Recommend title='Available Hotels' data={filteredHotels} />
+      )}
     </>
   );
 }
