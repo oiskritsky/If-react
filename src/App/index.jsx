@@ -1,5 +1,6 @@
 import React from 'react';
-import HotelList from '../components/Hotels/HotelList';
+import Main from '../components/Main/Main';
+import Recommend from '../components/Recommend/Recommend';
 
 import data from '../mock/data';
 
@@ -8,20 +9,10 @@ import './App.css';
 
 function App() {
   return (
-    <section className='recommend'>
-      <div className='recommend__wrapper'>
-        <div className='recommend__title'>
-          <h2>Homes ssss loves</h2>
-        </div>
-        <div className='slider-buttons'>
-          <button type='button' aria-label='prev' className='btn-prev' />
-          <button type='button' aria-label='next' className='btn-next' />
-        </div>
-        <div className='recommend-list__wrapper'>
-          <HotelList hotelData={data} />
-        </div>
-      </div>
-    </section>
+    <>
+      <Main />
+      <Recommend title='Homes Guest Loves' data={data} />
+    </>
   );
 }
 
