@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Main from '../components/Main/Main';
 import Recommend from '../components/Recommend/Recommend';
+
 import Sort from '../mock/bubleSort';
 // import data from '../mock/data';
 
@@ -27,11 +28,11 @@ function App() {
   }, []);
 
   if (getError) {
-    console.log('Словил ошибку');
+    console.log('Словил ошибку запроса');
   } else if (!isOver) {
     return (
       <div>
-        <h5>Loading ... ... ...</h5>
+        <h5> Loading ...</h5>
       </div>
     );
   } else {
