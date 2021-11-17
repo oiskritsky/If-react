@@ -142,19 +142,7 @@ main {
   background-image: url(../assets/images/svg/menu_mob.svg);
 }
 
-/* .form__div-destination {
-  width: 30%;
-}
-.form__div-date {
-  width: 25%;
-}
-.form__div-people {
-  width: 30%;
-  display: flex;
-}
-.form__div-btn {
-  width: 15%;
-}
+/* 
 
 .form__input-destination {
   border-radius: 8px 0px 0px 8px;
@@ -190,7 +178,7 @@ main {
   font-weight: 400;
   line-height: 21px;
   color: #383838;
-  border: 3px solid #f3f3f4;
+  border: 0px solid #f3f3f4;
   outline: none;
   height: 64px;
   box-sizing: border-box;
@@ -207,7 +195,7 @@ main {
   border: 3px solid #f5bd41;
 }
 .form__desktop .sbar__first {
-  width: 30%;
+  flex: 1;
 }
 .form__desktop #search {
   border-radius: 8px 0px 0px 8px;
@@ -227,6 +215,71 @@ main {
 
 .form__desktop #sendForm:focus {
   border: none;
+}
+.sbar__third {
+  display: flex;
+  flex: 0.75;
+  flex-direction: row;
+}
+
+.sbar__third > input:last-child {
+  border-radius: 0px 8px 8px 0px;
+}
+
+.form-desktop-people__picker {
+  background-color: #ffffff;
+  width: 259px;
+  height: auto;
+  position: relative;
+  top: 10px;
+  left: 720px;
+  border-radius: 8px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  color: #333333;
+  padding: 22px;
+}
+
+.form-desktop-people__picker div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-desktop-people__picker input {
+  width: 48px;
+  height: 30px;
+  padding: 0px;
+  margin-top: 0px;
+  border: none;
+  text-align: center;
+}
+
+.picker-people_count {
+  padding-bottom: 12px;
+}
+
+.form-desktop-people__picker span {
+  padding-bottom: 12px;
+}
+
+.form-desktop-people__picker button {
+  width: 30px;
+  height: 30px;
+  margin-top: 0px;
+  border: 1px solid #3077c6;
+  color: #3077c6;
+  background-color: #ffffff;
+}
+
+.form-desktop-people__picker button:disabled {
+  width: 30px;
+  height: 30px;
+  margin-top: 0px;
+  border: 1px solid #cecece;
+  color: #cecece;
+  background-color: #ffffff;
 }
 
 .recommend {

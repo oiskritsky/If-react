@@ -39,7 +39,6 @@ export default function InputDate({ dateRange, setDateRange }) {
         endDate={endDate}
         onChange={getDateChange}
       />
-      {console.log(dateRange)}
     </>
   );
 }
