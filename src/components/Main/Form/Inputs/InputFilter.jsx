@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import SelectAge from './SelectAge';
+
 export default function InputFilter({ people, setPeople }) {
   const [adults, setAdults] = useState(people.adults);
   const [kids, setKids] = useState(people.kids);
   const [rooms, setRooms] = useState(people.rooms);
+  const [age, setAge] = useState([]);
 
   const [isDisabled, setDisabled] = useState({
     adultsMinusBtn: true,
@@ -14,7 +17,14 @@ export default function InputFilter({ people, setPeople }) {
     roomsMinusBtn: true,
     roomsPlusBtn: false,
   });
-  ///
+
+  function addSelector() {
+    setAge([...age, { id: Date.now() }]);
+  }
+  function removeSelector() {
+    setAge(age.slice(1));
+  }
+
   const minusAdults = () => {
     setAdults(adults - 1);
   };
@@ -33,13 +43,13 @@ export default function InputFilter({ people, setPeople }) {
     setPeople({ ...people, adults });
   }, [adults]);
 
-  ///
-
   const minusKids = () => {
     setKids(kids - 1);
+    removeSelector();
   };
   const plusKids = () => {
     setKids(kids + 1);
+    addSelector();
   };
 
   useEffect(() => {
@@ -52,7 +62,6 @@ export default function InputFilter({ people, setPeople }) {
     }
     setPeople({ ...people, kids });
   }, [kids]);
-  ///
 
   const minusRooms = () => {
     setRooms(rooms - 1);
@@ -71,7 +80,6 @@ export default function InputFilter({ people, setPeople }) {
     }
     setPeople({ ...people, rooms });
   }, [rooms]);
-  ///
 
   return (
     <div className='form-desktop-people__picker'>
@@ -149,6 +157,7 @@ export default function InputFilter({ people, setPeople }) {
           </button>
         </div>
       </div>
+      {age.length > 0 ? <SelectAge age={age} /> : <> </>}
     </div>
   );
 }

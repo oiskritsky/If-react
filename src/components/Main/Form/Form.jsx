@@ -42,7 +42,7 @@ export default function Form({ hotelSearchData, setHotelSearchData }) {
         </div>
         <input type='submit' id='sendForm' />
       </section>
-      {filter && <InputFilter people={people} setPeople={setPeople} />}
+      {filter && <InputFilter people={people} setPeople={setPeople} readOnly />}
     </form>
   );
 }

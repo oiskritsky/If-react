@@ -142,25 +142,6 @@ main {
   background-image: url(../assets/images/svg/menu_mob.svg);
 }
 
-/* 
-
-.form__input-destination {
-  border-radius: 8px 0px 0px 8px;
-  border-right: none;
-}
-.form__input-date {
-  border-left: none;
-  border-right: none;
-}
-.form__input-people {
-  border-left: none;
-}
-.form__input-people-last {
-  border-radius: 0px 8px 8px 0px;
-  border-left: none;
-}
- */
-
 .form__desktop {
   margin: 0px 100px 120px 100px;
 }
@@ -224,6 +205,7 @@ main {
 
 .sbar__third > input:last-child {
   border-radius: 0px 8px 8px 0px;
+  text-align: center;
 }
 
 .form-desktop-people__picker {
@@ -244,7 +226,7 @@ main {
 .form-desktop-people__picker div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 }
 
 .form-desktop-people__picker input {
@@ -280,6 +262,25 @@ main {
   border: 1px solid #cecece;
   color: #cecece;
   background-color: #ffffff;
+}
+
+.picker__age {
+  flex-direction: column;
+}
+.picker__age-span {
+  padding-top: 16px;
+  font-size: 12px;
+}
+.picker__age-select-wrapper {
+  flex-direction: column;
+}
+.picker__age-select {
+  margin-top: 12px;
+  display: block;
+  height: 30px;
+  width: 99px;
+  font-size: 12px;
+  border: 1px solid #3077c6;
 }
 
 .recommend {

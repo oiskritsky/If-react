@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -8,9 +6,13 @@ export default function InputPeople({ value, onClick }) {
 
   return (
     <>
-      <input onClick={onClick} className='Adults' type='text' placeholder={`${adults} Adults`} />
-      <input onClick={onClick} className='Kids' type='text' placeholder={`${kids} Kids`} />
-      <input onClick={onClick} className='Rooms' type='text' placeholder={`${rooms} Room`} />
+      <input
+        onClick={onClick}
+        className='Adults Kids Rooms'
+        type='text'
+        placeholder={`${adults} Adults  -  ${kids} Kids  -  ${rooms} Rooms`}
+        readOnly
+      />
     </>
   );
 }
