@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 
 import SelectAge from './SelectAge';
 
-export default function InputFilter({ people, setPeople }) {
+export default function InputFilter({ people, setPeople, age, setAge }) {
   const [adults, setAdults] = useState(people.adults);
   const [kids, setKids] = useState(people.kids);
   const [rooms, setRooms] = useState(people.rooms);
-  const [age, setAge] = useState([]);
 
   const [isDisabled, setDisabled] = useState({
     adultsMinusBtn: true,
     adultsPlusBtn: false,
-    kidsMinusBtn: true,
+    kidsMinusBtn: false,
     kidsPlusBtn: false,
     roomsMinusBtn: true,
     roomsPlusBtn: false,
@@ -24,14 +23,6 @@ export default function InputFilter({ people, setPeople }) {
   function removeSelector() {
     setAge(age.slice(1));
   }
-
-  const minusAdults = () => {
-    setAdults(adults - 1);
-  };
-  const plusAdults = () => {
-    setAdults(adults + 1);
-  };
-
   useEffect(() => {
     if (adults <= 1) {
       setDisabled({ ...isDisabled, adultsMinusBtn: true });
@@ -43,14 +34,16 @@ export default function InputFilter({ people, setPeople }) {
     setPeople({ ...people, adults });
   }, [adults]);
 
-  const minusKids = () => {
-    setKids(kids - 1);
-    removeSelector();
-  };
-  const plusKids = () => {
-    setKids(kids + 1);
-    addSelector();
-  };
+  useEffect(() => {
+    if (rooms <= 1) {
+      setDisabled({ ...isDisabled, roomsMinusBtn: true });
+    } else if (rooms >= 30) {
+      setDisabled({ ...isDisabled, roomsPlusBtn: true });
+    } else if (rooms >= 1 || rooms <= 30) {
+      setDisabled({ ...isDisabled, roomsMinusBtn: false, roomsPlusBtn: false });
+    }
+    setPeople({ ...people, rooms });
+  }, [rooms]);
 
   useEffect(() => {
     if (kids <= 0) {
@@ -63,23 +56,28 @@ export default function InputFilter({ people, setPeople }) {
     setPeople({ ...people, kids });
   }, [kids]);
 
+  const minusAdults = () => {
+    setAdults(adults - 1);
+  };
+  const plusAdults = () => {
+    setAdults(adults + 1);
+  };
+
+  const minusKids = () => {
+    setKids(kids - 1);
+    removeSelector();
+  };
+  const plusKids = () => {
+    setKids(kids + 1);
+    addSelector();
+  };
+
   const minusRooms = () => {
     setRooms(rooms - 1);
   };
   const plusRooms = () => {
     setRooms(rooms + 1);
   };
-
-  useEffect(() => {
-    if (rooms <= 1) {
-      setDisabled({ ...isDisabled, roomsMinusBtn: true });
-    } else if (rooms >= 30) {
-      setDisabled({ ...isDisabled, roomsPlusBtn: true });
-    } else if (rooms >= 1 || rooms <= 30) {
-      setDisabled({ ...isDisabled, roomsMinusBtn: false, roomsPlusBtn: false });
-    }
-    setPeople({ ...people, rooms });
-  }, [rooms]);
 
   return (
     <div className='form-desktop-people__picker'>
@@ -157,12 +155,14 @@ export default function InputFilter({ people, setPeople }) {
           </button>
         </div>
       </div>
-      {age.length > 0 ? <SelectAge age={age} /> : <> </>}
+      {age.length > 0 ? <SelectAge age={age} /> : <></>}
     </div>
   );
 }
 
 InputFilter.propTypes = {
+  age: PropTypes.array.isRequired,
+  setAge: PropTypes.func.isRequired,
   setPeople: PropTypes.func.isRequired,
   people: PropTypes.object.isRequired,
 };

@@ -9,6 +9,7 @@ import InputFilter from './Inputs/InputFilter';
 export default function Form({ hotelSearchData, setHotelSearchData }) {
   const [destination, setDestination] = useState(hotelSearchData);
   const [dateRange, setDateRange] = useState({ startDate: null, endDate: null });
+  const [age, setAge] = useState([]);
 
   const [people, setPeople] = useState({
     adults: 1,
@@ -42,7 +43,9 @@ export default function Form({ hotelSearchData, setHotelSearchData }) {
         </div>
         <input type='submit' id='sendForm' />
       </section>
-      {filter && <InputFilter people={people} setPeople={setPeople} readOnly />}
+      {filter && (
+        <InputFilter people={people} setPeople={setPeople} age={age} setAge={setAge} readOnly />
+      )}
     </form>
   );
 }
