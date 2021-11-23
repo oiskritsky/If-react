@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import SelectAge from './SelectAge';
+import SelectAge from './Select/SelectAge';
 
-export default function InputFilter({ people, setPeople, age, setAge }) {
+export default function InputFilter({ people, setPeople, age, setAge, isDisabled, setDisabled }) {
   const [adults, setAdults] = useState(people.adults);
   const [kids, setKids] = useState(people.kids);
   const [rooms, setRooms] = useState(people.rooms);
-
-  const [isDisabled, setDisabled] = useState({
-    adultsMinusBtn: true,
-    adultsPlusBtn: false,
-    kidsMinusBtn: false,
-    kidsPlusBtn: false,
-    roomsMinusBtn: true,
-    roomsPlusBtn: false,
-  });
 
   function addSelector() {
     setAge([...age, { id: Date.now() }]);
   }
   function removeSelector() {
-    setAge(age.slice(1));
+    setAge(age.slice(0, -1));
   }
   useEffect(() => {
     if (adults <= 1) {
@@ -163,6 +154,8 @@ export default function InputFilter({ people, setPeople, age, setAge }) {
 InputFilter.propTypes = {
   age: PropTypes.array.isRequired,
   setAge: PropTypes.func.isRequired,
+  isDisabled: PropTypes.object.isRequired,
+  setDisabled: PropTypes.func.isRequired,
   setPeople: PropTypes.func.isRequired,
   people: PropTypes.object.isRequired,
 };
