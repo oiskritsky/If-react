@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-export default function Select({ id }) {
+export default function Select() {
   return (
     <>
-      <select className='picker__age-select' key={id}>
+      <select className='picker__age-select'>
         <option value='0'>0 years old</option>
         <option value='1'>1 years old</option>
         <option value='2'>2 years old</option>
@@ -27,7 +26,3 @@ export default function Select({ id }) {
     </>
   );
 }
-
-Select.propTypes = {
-  id: PropTypes.number.isRequired,
-};

@@ -13,7 +13,7 @@ export default function SelectAge({ age }) {
       </span>
       <div className='picker__age-select-wrapper'>
         {age.map((item) => (
-          <Select key={item.id} id={item.id + 1} />
+          <Select key={item.id} />
         ))}
       </div>
     </div>
