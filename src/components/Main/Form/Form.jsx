@@ -11,6 +11,13 @@ export default function Form({ hotelSearchData, setHotelSearchData }) {
   const [dateRange, setDateRange] = useState({ startDate: null, endDate: null });
   const [age, setAge] = useState([]);
 
+  const [people, setPeople] = useState({
+    adults: 1,
+    kids: 0,
+    kidsAge: [],
+    rooms: 1,
+  });
+  const [filter, setFilter] = useState(false);
   const [isDisabled, setDisabled] = useState({
     adultsMinusBtn: true,
     adultsPlusBtn: false,
@@ -19,13 +26,6 @@ export default function Form({ hotelSearchData, setHotelSearchData }) {
     roomsMinusBtn: true,
     roomsPlusBtn: false,
   });
-
-  const [people, setPeople] = useState({
-    adults: 1,
-    kids: 0,
-    rooms: 1,
-  });
-  const [filter, setFilter] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();

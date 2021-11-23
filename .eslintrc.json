@@ -24,6 +24,7 @@
     "jsx-a11y/label-has-associated-control": "off",
     "no-console": "off",
     "react/forbid-prop-types": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "no-param-reassign": "off"
   }
 }
