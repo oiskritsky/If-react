@@ -7,9 +7,11 @@ export default function InputFilter({ people, setPeople, age, setAge, isDisabled
   const [adults, setAdults] = useState(people.adults);
   const [kids, setKids] = useState(people.kids);
   const [rooms, setRooms] = useState(people.rooms);
+  const [countSelect, setCountSelect] = useState(1);
 
   function addSelector() {
-    setAge([...age, { id: Date.now() }]);
+    setAge([...age, { id: countSelect }]);
+    setCountSelect(countSelect + 1);
   }
   function removeSelector() {
     setAge(age.slice(0, -1));
@@ -45,6 +47,7 @@ export default function InputFilter({ people, setPeople, age, setAge, isDisabled
       setDisabled({ ...isDisabled, kidsMinusBtn: false, kidsPlusBtn: false });
     }
     setPeople({ ...people, kids });
+    console.log(...age);
   }, [kids]);
 
   const minusAdults = () => {
@@ -146,7 +149,7 @@ export default function InputFilter({ people, setPeople, age, setAge, isDisabled
           </button>
         </div>
       </div>
-      {age.length > 0 ? <SelectAge age={age} /> : <></>}
+      {age.length !== 0 ? <SelectAge age={age} /> : <></>}
     </div>
   );
 }
