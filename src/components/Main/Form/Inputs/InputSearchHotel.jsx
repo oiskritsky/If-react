@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function InputSearch({ value, onChange }) {
+export default function InputSearchHotel({ value, onChange }) {
   return (
     <>
+      <label className='input__lable' htmlFor='search'>
+        Your destination or hotel name
+      </label>
       <input
         id='search'
         type='text'
@@ -16,7 +19,7 @@ export default function InputSearch({ value, onChange }) {
   );
 }
 
-InputSearch.propTypes = {
+InputSearchHotel.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
