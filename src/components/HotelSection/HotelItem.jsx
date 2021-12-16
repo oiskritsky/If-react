@@ -17,5 +17,5 @@ HotelItem.propTypes = {
   name: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired
+  imageUrl: PropTypes.string.isRequired,
 };
