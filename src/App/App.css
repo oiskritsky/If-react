@@ -11,16 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-html {
-  box-sizing: border-box;
-  list-style-type: none;
-  text-decoration: none;
-}
-
 *,
 *::after,
 ::before {
-  box-sizing: inherit;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
 }
 
 body {
@@ -35,7 +31,7 @@ body {
 main {
   background: url(../assets/images/background_main.svg) no-repeat;
   background-size: cover;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0px auto;
 }
 
@@ -221,13 +217,14 @@ main {
   height: auto;
   position: relative;
   top: 10px;
-  left: 720px;
+  left: 1080px;
   border-radius: 8px;
   font-family: Roboto;
   font-weight: 400;
   font-size: 16px;
   color: #333333;
   padding: 22px;
+  z-index: 1;
 }
 
 .form-desktop-people__picker div {
@@ -340,7 +337,8 @@ main {
   height: 20rem;
 }
 
-.recommend__list li a {
+.recommend__list li h2 {
+  width: 20rem;
   padding: 24px 0px 24px;
   text-decoration: none;
   font-family: Roboto;
@@ -352,6 +350,7 @@ main {
 }
 
 .recommend__list li p {
+  width: 18rem;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -360,6 +359,57 @@ main {
   color: #bfbfbf;
 }
 
+.hotel-card-wrapper {
+  margin: 0 auto;
+  background: #f3d2fa;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 100px;
+}
+
+.hotel-card-text-wrapper {
+  margin: 0px auto;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 50px;
+}
+
+.hotel-card-text {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+}
+.hotel-card-text h2 {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 47px;
+  padding-bottom: 50px;
+  margin: 0;
+  color: #10367c;
+}
+.hotel-card-text p {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 25px;
+  color: #8e8e8f;
+  margin: 0;
+}
+.hotel-card-button {
+  width: 50px;
+  height: 50px;
+  color: brown;
+}
+.hotel-card-img {
+  margin: 10px;
+  border-radius: 1rem;
+  width: 25rem;
+  height: 25rem;
+}
 /*
 .slider-buttons {
   text-align: center;

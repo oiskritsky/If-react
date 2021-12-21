@@ -1,13 +1,14 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 
 export default function HotelItem({ name, city, country, imageUrl }) {
   return (
     <li className='recommend__list-item'>
       <img src={imageUrl} alt='hotelImage' />
-      <a href='./'>{name}</a>
+      <h2>{name}</h2>
       <p>
-        {city} {country}
+        {city}, {country}
       </p>
     </li>
   );
