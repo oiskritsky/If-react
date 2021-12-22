@@ -2,7 +2,10 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 
 const commonConfig = require('./webpack.common');
-
+const crypto = require('crypto');
+const crypto_orig_createHash = crypto.createHash;
+crypto.createHash = (algorithm) =>
+  crypto_orig_createHash(algorithm == 'md4' ? 'sha256' : algorithm);
 const source = path.resolve(__dirname, '../src');
 
 module.exports = merge(commonConfig, {

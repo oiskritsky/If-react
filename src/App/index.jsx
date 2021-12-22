@@ -1,47 +1,64 @@
 import React, { useState, useEffect } from 'react';
-import Main from '../components/Main/Main';
-import Recommend from '../components/Recommend/Recommend';
-
-import Sort from '../mock/bubleSort';
-// import data from '../mock/data';
+import Header from '../components/Header/Index';
+import Title from '../components/Title';
+import Form from '../components/Form/Form';
+import Market from '../components/Market';
+import Hotels from '../components/Routes/Hotels';
+import Footer from '../components/Footer/Footer';
 
 import './Reset.css';
 import './App.css';
 
-function App() {
+export default function App() {
+  const [hotelSearchData, setHotelSearchData] = useState('');
+
+  // Recomendation data
   const [data, setData] = useState([]);
-
-  const [isOver, setIsOver] = useState(false);
-  const [getError, setError] = useState(false);
-
   useEffect(() => {
     fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
       .then((response) => response.json())
       .then((result) => {
-        setIsOver(true);
-        setData(Sort(result));
+        setData(result);
       })
       .catch((err) => {
-        setIsOver(true);
-        setError(err.message);
+        console.log(err.message);
       });
   }, []);
 
-  if (getError) {
-    console.log('Словил ошибку запроса');
-  } else if (!isOver) {
-    return (
-      <div>
-        <h5> Loading ...</h5>
-      </div>
-    );
-  } else {
-    return (
-      <>
-        <Main />
-        <Recommend title='Homes Guest Loves' data={data} />)
-      </>
-    );
-  }
+  // Search data
+  const [searchedData, setSearchData] = useState([]);
+  useEffect(() => {
+    if (hotelSearchData) {
+      const url = new URL('https://fe-student-api.herokuapp.com/api/hotels');
+      url.searchParams.set('search', `${hotelSearchData}`);
+      fetch(`${url}`)
+        .then((response) => response.json())
+        .then((result) => {
+          setSearchData(result);
+        })
+        .catch((err) => {
+          console.log('Поисковый запрос не прошел', err);
+        });
+    }
+  }, [hotelSearchData]);
+
+  const searchedHotels = searchedData.filter(
+    (item) =>
+      !(item.name.toLowerCase().indexOf(hotelSearchData.toLowerCase()) === -1) ||
+      !(item.city.toLowerCase().indexOf(hotelSearchData.toLowerCase()) === -1) ||
+      !(item.country.toLowerCase().indexOf(hotelSearchData.toLowerCase()) === -1)
+  );
+
+  return (
+    <>
+      <main className='main'>
+        <Header />
+        <Title />
+        <Form hotelSearchData={hotelSearchData} setHotelSearchData={setHotelSearchData} />
+        <Market />
+      </main>
+      <Hotels data={data} searchedHotels={searchedHotels} />
+      <Footer />
+    </>
+  );
 }
-export default App;
