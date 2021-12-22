@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import Header from '../components/Header/Index';
 import Title from '../components/Title';
 import Form from '../components/Form/Form';
 import Market from '../components/Market';
-import HotelSection from '../components/HotelSection/HotelSection';
-import HotelCard from '../components/HotelSection/HotelCard';
+import Hotels from '../components/Routes/Hotels';
+import Footer from '../components/Footer/Footer';
 
 import './Reset.css';
 import './App.css';
@@ -58,19 +57,8 @@ export default function App() {
         <Form hotelSearchData={hotelSearchData} setHotelSearchData={setHotelSearchData} />
         <Market />
       </main>
-      <Routes>
-        <Route
-          exect
-          path='/'
-          element={
-            !!searchedHotels.length && (
-              <HotelSection title='Available Hotels' data={searchedHotels} />
-            )
-          }
-        />
-        <Route exact path='/hotels/:id' element={<HotelCard />} />
-      </Routes>
-      {!!data.length && <HotelSection title='Homes Guest Loves' data={data} />})
+      <Hotels data={data} searchedHotels={searchedHotels} />
+      <Footer />
     </>
   );
 }
